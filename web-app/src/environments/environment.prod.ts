@@ -5,7 +5,7 @@ export const environment = {
   production: true,
   version: env.npm_package_version,
   fineractPlatformTenantId: 'default',  // For connecting to server running elsewhere update the tenant identifier
-  baseApiUrl: 'http://demo.openmf.org',  // For connecting to server running elsewhere update the base API U
+  baseApiUrl: 'https://34.82.213.175',  // For connecting to server running elsewhere update the base API U
   apiProvider: '/fineract-provider/api',
   apiVersion: '/v1',
   serverUrl: '',
