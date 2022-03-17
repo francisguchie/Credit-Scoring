@@ -103,7 +103,7 @@ export class AuthenticationService {
           })
         );
     } else {
-      return this.http.post('/authentication', {}, { params: httpParams })
+      return this.http.post('/authentication', { username: loginContext.username, password: loginContext.password })
         .pipe(
           map((credentials: Credentials) => {
             this.onLoginSuccess(credentials);
@@ -224,10 +224,9 @@ export class AuthenticationService {
    * @returns {boolean} True if the user is authenticated.
    */
   isAuthenticated(): boolean {
-    return true;
-    // return !!(JSON.parse(
-    //     sessionStorage.getItem(this.credentialsStorageKey) || localStorage.getItem(this.credentialsStorageKey)
-    //   ) && this.twoFactorAccessTokenIsValid());
+     return !!(JSON.parse(
+         sessionStorage.getItem(this.credentialsStorageKey) || localStorage.getItem(this.credentialsStorageKey)
+       ) && this.twoFactorAccessTokenIsValid());
   }
 
   /**

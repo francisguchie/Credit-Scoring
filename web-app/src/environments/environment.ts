@@ -12,7 +12,7 @@ export const environment = {
   // fineractPlatformTenantId: 'staging',  // For connecting to server running elsewhere update the tenant identifier
   // baseApiUrl: 'https://staging.openmf.org',  // For connecting to server running elsewhere update the base API URL
   fineractPlatformTenantId: 'default',  // For connecting to server running elsewhere update the tenant identifier
-  baseApiUrl: 'https://demo.openmf.org',  // For connecting to server running elsewhere update the base API URL
+  baseApiUrl: 'https://demo.mifos.io',  // For connecting to server running elsewhere update the base API URL
   apiProvider: '/fineract-provider/api',
   apiVersion: '/v1',
   serverUrl: '',
