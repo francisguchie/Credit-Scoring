@@ -1,6 +1,7 @@
 /** Angular Imports */
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {ActivatedRoute, Router, Routes} from '@angular/router';
 
 /** rxjs Imports */
 import { finalize } from 'rxjs/operators';
@@ -30,7 +31,8 @@ export class LoginFormComponent implements OnInit {
    * @param {AuthenticationService} authenticationService Authentication Service.
    */
   constructor(private formBuilder: FormBuilder,
-              private authenticationService: AuthenticationService) {  }
+              private authenticationService: AuthenticationService,
+              private router: Router) {  }
 
   /**
    * Creates login form.
@@ -48,6 +50,7 @@ export class LoginFormComponent implements OnInit {
   login() {
     this.loading = true;
     this.loginForm.disable();
+    this.router.navigate(['/home'], { replaceUrl: true });
     this.authenticationService.login(this.loginForm.value)
       .pipe(finalize(() => {
         this.loginForm.reset();
@@ -56,6 +59,7 @@ export class LoginFormComponent implements OnInit {
         this.loginForm.enable();
         this.loading = false;
       })).subscribe();
+
   }
 
   /**

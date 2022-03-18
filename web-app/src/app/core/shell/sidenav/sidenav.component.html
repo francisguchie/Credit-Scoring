@@ -21,7 +21,7 @@
         {{ username }}
       </span>
       <div class="app-user-controls">
-        <button class="text-muted xs-button" mat-icon-button matTooltip="Settings" [routerLink]="['/settings']">
+        <button class="text-muted xs-button" mat-icon-button matTooltip="Settings" [routerLink]="['/settings']" *ngIf="showtoolbar">
           <fa-icon icon="cog"></fa-icon>
         </button>
         <button class="text-muted xs-button" mat-icon-button matTooltip="Sign Out" (click)="logout()">
@@ -30,14 +30,14 @@
       </div>
     </div>
 
-    <div class="app-sidenav">
+    <div class="app-sidenav" *ngIf="showtoolbar">
 
       <!-- TODO: Generate frequently accessed routes dynamically -->
-      <div class="mt-1 mb-1 nav-item-sep">
+      <div class="mt-1 mb-1 nav-item-sep" *ngIf="showtoolbar">
         <mat-divider></mat-divider>
         <span class="text-muted icon-menu-title">Frequently Accessed</span>
       </div>
-      <div class="icon-menu">
+      <div class="icon-menu" *ngIf="showtoolbar">
         <div class="icon-menu-item">
           <button mat-raised-button matTooltip="Home" [routerLink]="['/home']">
             <fa-icon icon="home" size="lg"></fa-icon>
@@ -60,7 +60,7 @@
         <span class="text-muted">Main Items</span>
       </div>
 
-      <mat-nav-list>
+      <mat-nav-list *ngIf="showtoolbar">
         <mat-list-item [routerLink]="['/dashboard']">
           <mat-icon matListIcon>
             <fa-icon icon="tachometer-alt" size="sm"></fa-icon>

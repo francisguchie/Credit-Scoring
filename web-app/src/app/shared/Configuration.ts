@@ -5,7 +5,7 @@ export const commonValues: any = {
 };
 
 export const ENV_PATH: any = {
-    // DEV_URL: 'http://localhost:3000',
+  //  DEV_URL: 'http://localhost:3000',
     SIT_URL: '',
     UAT_URL: '',
     DEV_URL: 'http://localhost:5000/',

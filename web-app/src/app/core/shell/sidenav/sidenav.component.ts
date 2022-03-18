@@ -20,6 +20,8 @@ export class SidenavComponent implements OnInit {
   /** Username of authenticated user. */
   username: string;
 
+  showtoolbar: false;
+
   /**
    * @param {Router} router Router for navigation.
    * @param {AuthenticationService} authenticationService Authentication Service.

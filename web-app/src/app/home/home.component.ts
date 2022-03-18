@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   /** Username of authenticated user. */
   username: string;
 
+  showtoolbar = false;
+
   /**
    * @param {AuthenticationService} authenticationService Authentication Service.
    */
@@ -27,7 +29,7 @@ export class HomeComponent implements OnInit {
    */
   ngOnInit() {
     const credentials = this.authenticationService.getCredentials();
- //   this.username = credentials.username;
+    this.username = credentials.username;
   }
 
 }

@@ -11,26 +11,26 @@
 
   <nav mat-tab-nav-bar backgroundColor="primary" class="ml-1">
 
-    <a mat-tab-link class="tab-link" [matMenuTriggerFor]="institutionMenu" #institutionMenuTrigger="matMenuTrigger">
+    <a mat-tab-link class="tab-link" [matMenuTriggerFor]="institutionMenu" #institutionMenuTrigger="matMenuTrigger" *ngIf="showtoolbar">
       <fa-icon class="mr-05" icon="university" size="lg"></fa-icon>
       Institution
     </a>
 
     <span fxHide.lt-lg="true">
 
-      <a mat-tab-link class="tab-link" [routerLink]="['/accounting']">
+      <a mat-tab-link class="tab-link" [routerLink]="['/accounting']" *ngIf="showtoolbar">
         <fa-icon class="mr-05" icon="money-bill-alt" size="lg"></fa-icon>
         Accounting
       </a>
-      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="reportsMenu" #reportsMenuTrigger="matMenuTrigger" >
+      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="reportsMenu" #reportsMenuTrigger="matMenuTrigger" *ngIf="showtoolbar">
         <fa-icon class="mr-05" icon="chart-bar" size="lg"></fa-icon>
         Reports
       </a>
-      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="adminMenu" #adminMenuTrigger="matMenuTrigger">
+      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="adminMenu" #adminMenuTrigger="matMenuTrigger" *ngIf="showtoolbar">
         <fa-icon class="mr-05" icon="shield-alt" size="lg"></fa-icon>
         Admin
       </a>
-      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="selfServiceMenu" #selfServiceMenuTrigger="matMenuTrigger">
+      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="selfServiceMenu" #selfServiceMenuTrigger="matMenuTrigger" *ngIf="showtoolbar">
         <fa-icon class="mr-05" icon="users" size="lg"></fa-icon>
         Self Service
       </a>

@@ -44,6 +44,8 @@ export class ToolbarComponent implements OnInit {
   /** Sets the initial state of sidenav as collapsed. Not collapsed if false. */
   sidenavCollapsed = true;
 
+  showtoolbar = false;
+
   /** Instance of sidenav. */
   @Input() sidenav: MatSidenav;
   /** Sidenav collapse event. */

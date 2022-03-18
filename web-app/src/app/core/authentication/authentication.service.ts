@@ -88,10 +88,8 @@ export class AuthenticationService {
     this.rememberMe = loginContext.remember;
     this.storage = this.rememberMe ? localStorage : sessionStorage;
 
-    let httpParams = new HttpParams();
-    httpParams = httpParams.set('username', loginContext.username);
-    httpParams = httpParams.set('password', loginContext.password);
     if (environment.oauth.enabled) {
+      let httpParams = new HttpParams();
       httpParams = httpParams.set('client_id', 'community-app');
       httpParams = httpParams.set('grant_type', 'password');
       httpParams = httpParams.set('client_secret', '123');

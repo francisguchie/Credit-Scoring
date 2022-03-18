@@ -1,4 +1,4 @@
-<form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()" id="login-form">
+<form fxLayout="column" [formGroup]="loginForm"  id="login-form">
 
   <mat-form-field fxFlexAlign="center" class="login-input">
     <span matPrefix>
@@ -29,7 +29,7 @@
 
   <mat-checkbox fxFlexAlign="center" formControlName="remember" class="m-t-10">Remember me</mat-checkbox>
 
-  <button mat-raised-button color="primary" fxFlexAlign="center" class="login-button" [disabled]="!loginForm.valid">
+  <button mat-raised-button color="primary" fxFlexAlign="center" class="login-button" (click)="login()" [disabled]="!loginForm.valid">
     Login
     <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
   </button>
