@@ -250,7 +250,7 @@ export class ScorecardComponent implements OnInit {
             let gender = data["gender"];
 
             console.log(dob);
-            console.log(gender);
+            console.log("data : " + data.toString());
             let age = 0;
             let gen = "";
             if (dob) {

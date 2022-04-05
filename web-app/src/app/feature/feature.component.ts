@@ -33,6 +33,7 @@ export class FeatureComponent implements OnInit {
 
   constructor(private _featureService: FeatureService, private router: Router, private route: ActivatedRoute, private _snackBar: MatSnackBar) {}
   ngOnInit() {
+    console.log("featuring")
     let id = null;
 
     let isCreateFeatureMode = this.router.url === "/feature";
