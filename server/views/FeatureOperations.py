@@ -8,11 +8,10 @@ from scorecard_backend.models.Configuration import Feature
 
 def getByFeatureId(id):
     sql = "select * from m_feature where id = '%d'" % id
-    print("id" + str(id))
     result = databaseOperation(sql)
     if result:
         for row in result:
-            feature = Feature(row['category'], id, row['data'], row['feature'], row['status'], row['value'])
+            feature = Feature(row[4], id, row[3], row[1], row[5], row[2])
 
         return feature
     else:
@@ -25,7 +24,7 @@ def getAllFeaturesFromDB():
     response = []
     if result:
         for row in result:
-            feature = Feature(row['category'], row['id'], row['data'], row['feature'], row['status'], row['value'])
+            feature = Feature(row[4], row[0], row[3], row[1], row[5], row[2])
             response.append(json.dumps(feature.__dict__))
     return response
 
@@ -35,23 +34,17 @@ def getFeatureNCategoryFromDB():
     response = []
     if result:
         for row in result:
-            print("value : " + str(row))
-            feature = Feature(row['category'], row['id'], None, row['feature'], None, None)
+            feature = Feature(row[2], row[0], None, row[1], None, None)
             response.append(json.dumps(feature.__dict__))
     return response
 
 def saveAFeature(id,feature, value, data, category, status):
-    if(status == ''):
-        status = 1
-    else:
-        status = 2
     if id:
         sql = "update m_feature set feature='"+feature+"', value='"+value+"', data='"+data+"', category='"+category+"', status='"+str(status)+"' where id=%d" %int(id)
     else:
         sql = "insert into m_feature (feature, value, data, category, status) values ('"+feature+"','"+value+"','"+data+"','"+category+"','"+str(status)+"')"
     print(sql)
     result = databaseOperationSave(sql)
-    print(result)
     if result:
         return {"status" : "SUCCESS"}
     else:

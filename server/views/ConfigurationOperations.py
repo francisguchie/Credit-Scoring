@@ -9,11 +9,10 @@ from scorecard_backend.models.Configuration import Configuration
 def getByConfigId(id):
     sql = "select * from m_configuration where id = '%d'" % id
     result = databaseOperation(sql)
-    print(result)
     if result:
         for row in result:
-            configuration = Configuration( row['id'], row['product'], row['feature'], row['category'], row['weightage'],
-                                           row['greenmin'], row['greenmax'], row['ambermin'], row['ambermax'], row['redmin'], row['redmax'])
+            configuration = Configuration( row[0], row[1], row[2], row[3], row[4],
+                                           row[5], row[6], row[7], row[8], row[9], row[10])
 
         return configuration
     else:
@@ -27,12 +26,13 @@ def getAllConfigurationFromDB():
     if result:
         for row in result:
 
-            configuration = Configuration( row['id'], row['product'], row['feature'], row['category'], row['weightage'],
-                                           row['greenmin'], row['greenmax'], row['ambermin'], row['ambermax'], row['redmin'], row['redmax'])
+            configuration = Configuration( row[0], row[1], row[2], row[3], row[4],
+                                           row[5], row[6], row[7], row[8], row[9], row[10])
             response.append(json.dumps(configuration.__dict__))
     return response
 
-def saveAConfiguration(id,feature,category,product,weightage,greenmax,greenmin,ambermax,ambermin,redmax,redmin):
+def saveAConfiguration(id,feature,category,product,weightage,greenmax,greenmin,ambermax,ambermin,redmax,redmin
+):
     if id:
         sql = "update m_configuration set feature='"+feature+"', product='"+product+"', weightage='"+weightage+"', category='"+category+"', greenmax='"+greenmax+"', greenmin='"+greenmin+"' , ambermax='"+ambermax+"', ambermin='"+ambermin+"', redmax='"+redmax+"', redmin='"+redmin+"'where id=%d" %int(id)
     else:

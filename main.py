@@ -8,11 +8,11 @@ from flask import Response
 
 from flask_cors import CORS
 
-from scorecard_backend.views.ConfigurationOperations import getAllConfigurationFromDB, getByConfigId, saveAConfiguration
-from scorecard_backend.views.CriteriaOperations import getAllCriteriaFromDB, getByCriteriaId, saveCriteria
-from scorecard_backend.views.FeatureOperations import getByFeatureId, getAllFeaturesFromDB, getFeatureNCategoryFromDB, \
+from views.ConfigurationOperations import getAllConfigurationFromDB, getByConfigId, saveAConfiguration
+from views.CriteriaOperations import getAllCriteriaFromDB, getByCriteriaId, saveCriteria
+from views.FeatureOperations import getByFeatureId, getAllFeaturesFromDB, getFeatureNCategoryFromDB, \
     saveAFeature
-from scorecard_backend.views.ScorecardOperations import getByAge, getByGender
+from views.ScorecardOperations import getByAge, getByGender
 
 
 app = Flask(__name__)
@@ -40,7 +40,8 @@ def getAllFeatures():
 def saveTheFeature():
     # feature, value, data, category, status
     data = request.json
-    print(request.json['id'])
+    # print(request.json['id'])
+    
     values = (data['feature'],data['value'],data['data'],data['category'],data['status'])
     return saveAFeature(data['id'],data['feature'],data['value'],data['data'],data['category'],data['status'])
 

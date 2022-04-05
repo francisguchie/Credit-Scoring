@@ -2,7 +2,12 @@ import pymysql
 
 
 def databaseOperation(sqlQuery):
-    db = pymysql.connect("localhost", "root", "password", "mifostenant")
+    db = pymysql.connect(host='localhost',
+                             user='root',
+                             password='mysql',
+                             database='mifostenant',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
@@ -10,15 +15,20 @@ def databaseOperation(sqlQuery):
     try:
         cursor.execute(sqlQuery)
         return cursor.fetchall()
-    except:
-        print("Error: unable to fetch data")
+    except Exception as e:
+        raise ValueError(e)
 
     # disconnect from server
     db.close()
 
 
 def databaseOperationSave(sqlQuery):
-    db = pymysql.connect("localhost", "root", "password", "mifostenant")
+    db = pymysql.connect(host='localhost',
+                             user='root',
+                             password='mysql',
+                             database='mifostenant',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
